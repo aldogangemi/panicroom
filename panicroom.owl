@@ -114,15 +114,19 @@ These phases are modelled as disjoint classes part of the paradigm, including th
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS-"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#US"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS+"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS-"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#US"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS+"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -151,14 +155,13 @@ These phases are modelled as disjoint classes part of the paradigm, including th
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS-"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS+"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS-"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS+"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -206,14 +209,13 @@ This phase can be replaced 24h later (recall phase).</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS-"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS+"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS-"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS+"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>

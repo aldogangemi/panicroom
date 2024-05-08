@@ -1,16 +1,44 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/39333/ontologies/2024/4/untitled-ontology-8/"
-     xml:base="http://www.semanticweb.org/39333/ontologies/2024/4/untitled-ontology-8/"
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl">
-        <rdfs:comment>This ontology describe the PanicRoom paradigm.
-It is implemented in OWL2 in order to explain the relations among classes of experimental phases and stimuli, based on the classical Pavlovian Fear Conditioning Paradigm. 
-Our PanicRoom VR paradigm inherits the three fear conditioning phases and the generic structure of stimuli (CS+, CS-, US). These phases are modelled as disjoint classes part of the paradigm, including the stimuli. Habituation precedes Acquisition, which precedes Extinction, which precedes a possible Recall phase. The US stimulus is included only in the acquisition phase and it is part of some CS+, randomly selected.</rdfs:comment>
+        <rdfs:comment>This ontology describes the PanicRoomVirtual Reality experimental paradigm.
+It formalizes the paradigm, and enables knowledge graph-based reasoning over the data of instantiated PanicRoom experiments.
+It is implemented in OWL2 in order to explain the relations among classes of experimental phases and stimuli, based on the classic Pavlovian Fear Conditioning Paradigm. 
+Our PanicRoom VR paradigm inherits the three Pavlovian fear conditioning phases and its generic structure of stimuli (CS+, CS-, US). 
+These phases are modelled as disjoint classes part of the paradigm, including the stimuli. Habituation precedes Acquisition, which precedes Extinction, which precedes a possible Recall phase.
+ The US stimulus is included only in the acquisition phase, and it is part of some CS+, randomly selected.</rdfs:comment>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
     
 
 
@@ -28,6 +56,7 @@ Our PanicRoom VR paradigm inherits the three fear conditioning phases and the ge
     <!-- http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#included_in -->
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#included_in">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"/>
         <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
     </owl:ObjectProperty>
     
@@ -35,19 +64,36 @@ Our PanicRoom VR paradigm inherits the three fear conditioning phases and the ge
 
     <!-- http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#includes">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"/>
+    </owl:ObjectProperty>
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#part_of -->
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#part_of"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <dc:creator>Aldo Gangemi</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-08T11:47:32Z</dc:date>
+    </owl:ObjectProperty>
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#precedes -->
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#precedes"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#precedes -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#precedes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
     
 
 
@@ -81,9 +127,8 @@ Our PanicRoom VR paradigm inherits the three fear conditioning phases and the ge
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#precedes"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Extinction"/>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#precedes"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Extinction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Acquisition phase involves 7 CS+ trials (83%) are immediately followed by the leaping monster, that is related to the partial reinforcement program; and 7 CS- trials that do not present stimuli once opened.</rdfs:comment>
@@ -118,7 +163,7 @@ Our PanicRoom VR paradigm inherits the three fear conditioning phases and the ge
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#precedes"/>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#precedes"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                 <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Recall"/>
             </owl:Restriction>
@@ -134,38 +179,23 @@ This phase can be replaced 24h later (recall phase).</rdfs:comment>
     <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#FearConditioning">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty>
-                    <rdf:Description>
-                        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#part_of"/>
-                    </rdf:Description>
-                </owl:onProperty>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Acquisition"/>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Acquisition"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty>
-                    <rdf:Description>
-                        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#part_of"/>
-                    </rdf:Description>
-                </owl:onProperty>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Extinction"/>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Extinction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty>
-                    <rdf:Description>
-                        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#part_of"/>
-                    </rdf:Description>
-                </owl:onProperty>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Habituation"/>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Habituation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>Fear conditioning is a classic paradigm in psychology that enables the study of fear acquisition and extinction using neutral and fear-inducing stimuli (Lonsdorf and Merz, 2017). This protocol, widely utilized in research on anxiety and related disorders (Marković et al., 2021), facilitates the examination of the impact of environmental and intrinsic factors on affective learning processes (Lucifora et al., 2022).</rdfs:comment>
+        <rdfs:comment>The class of fear conditioning experimental situations. Fear conditioning is a classic paradigm in psychology that enables the study of fear acquisition and extinction using neutral and fear-inducing stimuli (Lonsdorf and Merz, 2017). This protocol, widely utilized in research on anxiety and related disorders (Marković et al., 2021), facilitates the examination of the impact of environmental and intrinsic factors on affective learning processes (Lucifora et al., 2022).</rdfs:comment>
     </owl:Class>
     
 
@@ -188,9 +218,8 @@ This phase can be replaced 24h later (recall phase).</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#precedes"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Acquisition"/>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#precedes"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Acquisition"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>The habituation phase (duration 4 minutes) includes the presentation of 4 CS+and 4 CS-, each shown for 12 s on in random order. The interval between one process and the next is 3 seconds. CS+ and CS- must be presented separately, which open 3 seconds after their presentation, and they stay open for an additional 9 seconds. In this phase, no US stimuli are perceived</rdfs:comment>
@@ -202,7 +231,7 @@ This phase can be replaced 24h later (recall phase).</rdfs:comment>
 
     <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#PanicRoom">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#FearConditioning"/>
-        <rdfs:comment>Panic Room is a Virtual Reality paradigm, based on the Pavlovian Fear Conditioning task.</rdfs:comment>
+        <rdfs:comment>The class of panic room experimental situations. Panic Room is a Virtual Reality paradigm, based on the Pavlovian Fear Conditioning task.</rdfs:comment>
     </owl:Class>
     
 
@@ -219,7 +248,9 @@ This phase can be made 24h later the extinction phase</rdfs:comment>
 
     <!-- http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Stimulus -->
 
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Stimulus"/>
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#Stimulus">
+        <rdfs:comment>In experimental psychology, a stimulus is the event or object to which a response is measured.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -235,7 +266,7 @@ This phase can be made 24h later the extinction phase</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#part_of"/>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"/>
                 <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS+"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -247,7 +278,7 @@ This phase can be made 24h later the extinction phase</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#part_of"/>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"/>
                 <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/cogsci/panicroom.owl#CS+"/>
             </owl:Restriction>
         </rdfs:subClassOf>
